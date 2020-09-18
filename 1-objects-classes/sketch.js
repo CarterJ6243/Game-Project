@@ -37,7 +37,7 @@ class Ball {
 	drawBall(){  // draw a ball on the screen at x,y
     		stroke(0);
     		fill(this.color);
-		    //(this.x,this.y,10,10); what's going on here?
+		    ellipse(this.x,this.y,10,10);
 	}
 	moveBall(){ //update the location of the ball, so it moves across the screen
 		this.x = this.x+2;
