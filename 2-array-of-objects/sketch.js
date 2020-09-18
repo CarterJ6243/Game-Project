@@ -9,7 +9,8 @@ function setup() {
 }
 
 function draw(){
-	background(220,90,156);
+	background(0);
+  //buildup();
 
 //	draw all the balls in that array
 	for (let i = 0; i < balls.length; i++) {
@@ -19,9 +20,11 @@ function draw(){
 }
 
 function keyPressed(){ //every time you push a key, make a new ball from the ball class and add it to the balls array
-  let  b = new Ball(100,100);
+if (keyCode === ENTER);
+  let  b = new Ball(random(0,800),0);
   balls.push(b);
   console.log(balls);
+  return false;
 }
 
 //ball class from which to create new balls with similar properties.
@@ -33,14 +36,14 @@ class Ball {
 	}
 
 	drawBall(){  // draw a ball on the screen at x,y
-    		stroke(0);
-    		fill(random(0,270), random(0,270), random(0,270));
-		    ellipse(this.x,this.y,10,10);
+    		stroke(255,255,255);
+    		//fill(random(0,270), random(0,270), random(0,270));
+        ellipse(this.x,this.y,random(10,20),random(10,20));
 	}
 
 	moveBall(){ //update the location of the ball, so it moves across the screen
-		this.x = this.x+2;
-		this.y = this.y+4;
+    this.x = this.x;
+		this.y = this.y+2;
 	}
 
 
