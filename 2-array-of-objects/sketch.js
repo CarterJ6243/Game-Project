@@ -2,6 +2,7 @@
 //create an empty array called balls
 
 let balls = [];
+let hats = [];
 
 function setup() {
   createCanvas(800, 400);
@@ -10,7 +11,6 @@ function setup() {
 
 function draw(){
 	background(0);
-  //buildup();
 
 //	draw all the balls in that array
 	for (let i = 0; i < balls.length; i++) {
@@ -24,7 +24,9 @@ if (keyCode === ENTER);
   let  b = new Ball(random(0,800),0);
   balls.push(b);
   console.log(balls);
-  return false;
+  if(keyCode === SHIFT);
+  let
+
 }
 
 //ball class from which to create new balls with similar properties.
@@ -47,4 +49,22 @@ class Ball {
 	}
 
 
+}
+
+class Hat {
+
+  constructor(x,y){
+    this.x=x;
+    this.y=y;
+  }
+
+    drawHat(){
+    stroke(0)
+    fill(255,random(0,270),0)
+    rect(this.x,this.y,this.x+20,this.y+20)
+  }
+  moveHat(){
+    this.x = this.x+4
+    this.y=this.y
+  }
 }
