@@ -25,13 +25,14 @@ function draw(){
 }
 
 function keyPressed(){ //every time you push a key, make a new ball from the ball class and add it to the balls array
-
-  let  b = new Ball(random(0,800),0);
-  balls.push(b);
-  console.log(balls);
-  let hats = new Hat(0,300);
-  hats.push(h);
-  console.log(hats);
+  if (keyCode === ENTER);
+    let  b = new Ball(random(0,800),0);
+    balls.push(b);
+    console.log(balls);
+   if (keyCode === DELETE);
+    let h = new Hat(0,360);
+    hats.push(h);
+    console.log(hats);
 
 }
 
@@ -45,6 +46,7 @@ class Ball {
 
 	drawBall(){  // draw a ball on the screen at x,y
     		stroke(255,255,255);
+        fill("white");
         ellipse(this.x,this.y,random(10,20),random(10,20));
 	}
 
@@ -63,13 +65,17 @@ class Hat {
     this.y=y;
   }
 
-    drawHat(){
-    stroke(0)
-    fill("red")
-    rect(this.x,this.y,20,20)
+  drawHat(){
+      stroke(0)
+      fill("red")
+      rect(this.x,this.y,30,80)
+      ellipse(this.x+20,this.y-20,60,60)
+      fill("black")
+      ellipse(this.x+30,this.y-30,20,20)
+      line(this.x+20,this.y,this.x+45,this.y-10)
   }
   moveHat(){
-    this.x = this.x+4
-    this.y=this.y
+    this.x = this.x+1
+    this.y = this.y
   }
 }
