@@ -1,16 +1,16 @@
 let b;
 let anotherBall;
 let thirdBall;
-//let firstobject;
-//let secondobject;
+let firstobject;
+let secondobject;
 
 function setup() {
   createCanvas(800, 400);
-  b = new RoundThing(300, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new RoundThing(200,300,"yellow");
-  thirdBall = new RoundThing(500,150,"white");
-  //firstobject = new NewObject(200,400,"green");
-  //secondobject = new NewObject(300.50,"pink");
+  b = new RoundThing(600, 300,"red"); //make a new ball from the Ball class and call it b.
+  anotherBall = new RoundThing(500,200,"yellow");
+  thirdBall = new RoundThing(400,300,"white");
+  firstobject = new NewObject(450,360,random(0,270));
+  secondobject = new NewObject(550,360,random(0,270));
 }
 
 
@@ -22,10 +22,10 @@ function draw(){
     anotherBall.moveBall();
     thirdBall.drawBall();
     thirdBall.moveBall();
-    //firstobject.drawObject();
-    //firstobject.moveObject();
-    //secondobject.drawObject();
-    //secondobject.moveObject();
+    firstobject.drawObject();
+    firstobject.moveObject();
+    secondobject.drawObject();
+    secondobject.moveObject();
 
 
 }
@@ -51,19 +51,20 @@ class RoundThing {
 	}
 }
 
-//class NewObject {
+class NewObject {
 
-  //constructor(x,y,color){
+  constructor(x,y){
       this.x = x;
       this.y = y;
-      this.color= color;
-  //}
-  //drawObject(){
+  }
+  drawObject(){
     stroke(0)
-    fill(this.color)
-    rect(this.x,this.y,400,200)
-//  }
-//  moveObject(){
+    strokeWeight(0)
+    fill(random(0,270),random(0,270),random(0,270))
+    rect(this.x,this.y,20,20)
+  }
+  moveObject(){
     this.x = this.x+random(-1,1);
-    this.y = this.y+random(-1.1)
-//  }
+    this.y = this.y+random(-1,1)
+  }
+}
