@@ -1,14 +1,16 @@
 let b;
 let anotherBall;
 let thirdBall;
-let fourthBall;
+//let firstobject;
+//let secondobject;
 
 function setup() {
   createCanvas(800, 400);
-  b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new Ball(200,20,"yellow");
-  thirdBall = new Ball(100,150, "orange");
-  fourthBall = new Ball(200,300, "purple");
+  b = new RoundThing(300, 100,"red"); //make a new ball from the Ball class and call it b.
+  anotherBall = new RoundThing(200,300,"yellow");
+  thirdBall = new RoundThing(500,150,"white");
+  //firstobject = new NewObject(200,400,"green");
+  //secondobject = new NewObject(300.50,"pink");
 }
 
 
@@ -20,14 +22,17 @@ function draw(){
     anotherBall.moveBall();
     thirdBall.drawBall();
     thirdBall.moveBall();
-    fourthBall.drawBall();
-    fourthBall.moveBall();
+    //firstobject.drawObject();
+    //firstobject.moveObject();
+    //secondobject.drawObject();
+    //secondobject.moveObject();
+
 
 }
 
 
 //ball class from which to create new balls with similar properties.
-class Ball {
+class RoundThing {
 
 	constructor(x,y,color){ //every ball needs an x value and a y value
 		    this.x = x;
@@ -36,11 +41,29 @@ class Ball {
 	}
 	drawBall(){  // draw a ball on the screen at x,y
     		stroke(0);
+        strokeWeight(20);
     		fill(this.color);
 		    ellipse(this.x,this.y,10,10);
 	}
 	moveBall(){ //update the location of the ball, so it moves across the screen
-		this.x = this.x+2;
-		this.y = this.y+.5;
+		this.x = this.x+random(-1,1);
+		this.y = this.y+random(-1,1);
 	}
 }
+
+//class NewObject {
+
+  //constructor(x,y,color){
+      this.x = x;
+      this.y = y;
+      this.color= color;
+  //}
+  //drawObject(){
+    stroke(0)
+    fill(this.color)
+    rect(this.x,this.y,400,200)
+//  }
+//  moveObject(){
+    this.x = this.x+random(-1,1);
+    this.y = this.y+random(-1.1)
+//  }
