@@ -25,15 +25,16 @@ function draw(){
 }
 
 function keyPressed(){ //every time you push a key, make a new ball from the ball class and add it to the balls array
-  if (keyCode === ENTER);
+  if (keyCode === 38){
     let  b = new Ball(random(0,800),0);
     balls.push(b);
     console.log(balls);
-   if (keyCode === DELETE);
+  } else if (keyCode === 37){
     let h = new Hat(0,360);
     hats.push(h);
     console.log(hats);
-
+    }
+    return false;
 }
 
 //ball class from which to create new balls with similar properties.
@@ -76,6 +77,6 @@ class Hat {
   }
   moveHat(){
     this.x = this.x+1
-    this.y = this.y
+    this.y = this.y+random(-.5,.5)
   }
 }
