@@ -3,8 +3,14 @@ let goodballs = [];
 let badballs = [];
 let score = 40
 let me;
+let mySound;
+let aSound
 
-
+function preload() {
+  soundFormats('mp3', 'ogg','wav');
+  mySound = loadSound('BonkNoise.wav');
+  aSound = loadSound('GlassThud.wav')
+}
 function setup() {
   createCanvas(500, 400);
 
@@ -114,6 +120,8 @@ class Ball {
     		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
       			this.speed = -this.speed;
             score=score+5
+            mySound.setVolume(0.1);
+            mySound.play();
     		}
   	}
 
@@ -139,6 +147,8 @@ class BadBall {
       if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
             this.speed = -this.speed;
             score=score-5
+            aSound.setVolume(0.1);
+            aSound.play();
         }
     }
 
